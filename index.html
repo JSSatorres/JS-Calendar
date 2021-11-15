@@ -126,6 +126,34 @@
         <div>tareas de hoy</div>
         <div>frase del día</div>
     </section>
+    <div id=event>
+        <div id="event-content">
+            <label>Name of Event
+            <input type="text" id="nameEvent"></label>
+            <label>Date of Start
+            <input type="datetime" id="dateStart"></label>
+            <label>
+            <input type="checkbox">Choose date finish</label>
+            <input type="datetime" id="dateFinal">
+            <label>
+            <input type="checkbox">Receive Notification</label>
+            <select name="time" id="time">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="1">1 hour</option>
+            </select>
+
+            <label>Type of Event
+                <select name="event" id="typeEvent">
+                    <option value="work">work</option>
+                    <option value="house">house</option>
+                    <option value="family">family</option>
+                    <option value="leisure">leisure</option>
+                </select></label>
+        </div>
+    </div>
 </body>
 
 </html>
