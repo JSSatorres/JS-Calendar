@@ -3,3 +3,21 @@
     --color-secundario: red; 
 }
 
+
+.containerDays{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.nameDays{
+    background-color: blue;
+    height: 30px;
+    border: 1px black solid;
+    color: white;
+}
+
+.days{
+    background-color: aqua;
+    height: 30px;
+    border: 1px black solid;
+}
