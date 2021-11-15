@@ -1,4 +1,4 @@
-const days =["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday" ]
+
 const Months= [ 
                 {month:	"January",
                 day:"31"},
@@ -36,7 +36,8 @@ var actYear = actDate.getFullYear()
 console.log(actYear)
 
 
-var fecha1 = new Date
+var fecha1 = new Date (2019,2,0).getDate;
+/*setday() Dice el dia de la semana*/
+
+
 console.log(fecha1)
-var pepdro = actDate.getDate()
-console.log(pepdro)
