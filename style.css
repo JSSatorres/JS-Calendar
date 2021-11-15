@@ -1,23 +1,21 @@
-:root{
-    --color-principal: rgb(81, 255, 0);
-    --color-secundario: red; 
+:root {
+  --color-principal: rgb(81, 255, 0);
+  --color-secundario: red;
 }
 
-
-.containerDays{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+.containerDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 0.5fr repeat(5, 1fr);
 }
 
-.nameDays{
-    background-color: blue;
-    height: 30px;
-    border: 1px black solid;
-    color: white;
+.nameDays {
+  background-color: blue;
+  border: 1px black solid;
+  color: white;
 }
 
-.days{
-    background-color: aqua;
-    height: 30px;
-    border: 1px black solid;
+.days {
+  background-color: aqua;
+  border: 1px black solid;
 }
