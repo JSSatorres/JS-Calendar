@@ -21,3 +21,34 @@
     height: 30px;
     border: 1px black solid;
 }
+
+/*Provisional*/
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    height: 100px;
+}
+
+#frase{
+    background-color: bisque;
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.col-left{
+    left: 0;
+}
+
+.col-right{
+    right: 0;
+}
+
+#addTask{
+    border-radius: 50%;
+    background-color: bisque;
+    border: 2px solid black;
+    font-weight: bold;
+}
