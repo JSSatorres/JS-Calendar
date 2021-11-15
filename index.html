@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="/index.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <header>
         <h2>libra</h2>
+        <button  id="previousButton">Previous</button>
         <h2>November</h2>
+        <button id="nextButton">Next</button>
         <h2>Year</h2>
         <h2>ofiuco</h2>
     </header>
     <section>
-        <div class="containerDays"> 
+        <div class="containerDays" id="containerDays">
             <div class="nameDays"> Monday </div>
             <div class="nameDays">Tuesday </div>
             <div class="nameDays">Wednesday</div>
@@ -24,41 +28,6 @@
             <div class="nameDays">Friday</div>
             <div class="nameDays">Saturday</div>
             <div class="nameDays">Sunday</div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
-            <div class="days"></div>
         </div>
         <section>
             <div>
@@ -73,7 +42,45 @@
         </section>
         <div>
             frase del día
+        <div>
+            <button> click</button>
         </div>
-    </section>
+        <div class="container">
+            <div class="col-left">
+                <p>Frase del día</p>
+                <button id="addTask">+</button>
+            </div>
+            <div id="frase" class="col-right">Hoy, las estrellas están a tu favor</div>
+        </div>
+    <div id=event>
+        <div id="event-content">
+            <label>Name of Event
+            <input type="text" id="nameEvent"></label>
+            <label>Date of Start
+            <input type="datetime" id="dateStart"></label>
+            <label>
+            <input type="checkbox">Choose date finish</label>
+            <input type="datetime" id="dateFinal">
+            <label>
+            <input type="checkbox">Receive Notification</label>
+            <select name="time" id="time">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="1">1 hour</option>
+            </select>
+
+            <label>Type of Event
+                <select name="event" id="typeEvent">
+                    <option value="work">work</option>
+                    <option value="house">house</option>
+                    <option value="family">family</option>
+                    <option value="leisure">leisure</option>
+                </select></label>
+        </div>
+    </div>
 </body>
 </html>
+
+
