@@ -12,10 +12,12 @@ function updateMonth(){
     actualMonth.innerHTML = actDate.toLocaleString('en-us', { month: 'long'})
     actualYear.innerHTML = actDate.toLocaleString('en-us', { year: 'numeric' })
 }
+
 function previousMonth(){
     actDate.setMonth(actDate.getMonth()-1)
     changeMonth(actDate)
 }
+
 function nextMonth(){
     actDate.setMonth(actDate.getMonth()+1)
     changeMonth(actDate)
@@ -36,12 +38,13 @@ function changeMonth(dia){
         dayDiv.classList= "days";
         dayDiv.textContent = new Date (actYear,actMonth,i).getDate();
         if(i<=0){dayDiv.style.color="white";}
+        if(i==actDate.getDate() && actDate.getMonth()== new Date().getMonth() && actDate.getFullYear()== new Date().getFullYear() ){
+            dayDiv.style.backgroundColor="green";
+        }
         mainContainerFragment.appendChild(dayDiv)
     }
     mainContainer.appendChild(mainContainerFragment)
 }
-
-
 
 function removeDaysDiv(){
     while (mainContainer.children.length>7){
