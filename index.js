@@ -59,5 +59,4 @@ changeMonth(actDate)
 //tener en cuenta la array futuro, eventos de un día
 function printEvent(fecha){
     //if fecha calendario= fecha evento=> print
-
 }
