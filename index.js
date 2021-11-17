@@ -39,9 +39,10 @@ function changeMonth(dia){
         dayDiv.textContent = new Date (actYear,actMonth,i).getDate();
         if(i<=0){dayDiv.style.color="white";}
         if(i==actDate.getDate() && actDate.getMonth()== new Date().getMonth() && actDate.getFullYear()== new Date().getFullYear() ){
-            dayDiv.style.backgroundColor="green";
+            dayDiv.style.backgroundColor="beige";
         }
-        mainContainerFragment.appendChild(dayDiv)
+        mainContainerFragment.appendChild(dayDiv);
+        printEvent(new Date (actYear,actMonth,i));
     }
     mainContainer.appendChild(mainContainerFragment)
 }
@@ -53,3 +54,10 @@ function removeDaysDiv(){
 }
 
 changeMonth(actDate)
+
+// imprimir evento en calendario
+//tener en cuenta la array futuro, eventos de un día
+function printEvent(fecha){
+    //if fecha calendario= fecha evento=> print
+
+}
