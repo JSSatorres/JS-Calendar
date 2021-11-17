@@ -2,16 +2,14 @@
 
 // console.log(actualYear)
 var actDate = new Date;
-var actYear = actDate.getFullYear()
-var actualYear = document.getElementById("actualYear")
+var actYear = actDate.getFullYear();
+var actualYear = document.getElementById("actualYear");
 var divChangeYear;
 var divNewYear;
 var DivChangeYearnBtnLeft;
 var divNumberYear;
 var DivChangeYearnBtnRight;
-var lastYear;
-var firstYear;
-actualYear.addEventListener("click",changeYearWindow)
+actualYear.addEventListener("click",changeYearWindow);
 
 
 function changeYearWindow(){
@@ -22,7 +20,7 @@ function changeYearWindow(){
     DivChangeYearnBtnLeft= document.createElement("button");
     DivChangeYearnBtnLeft.classList= "DivChangeYearnBtnLeft";
     divChangeYear.appendChild(DivChangeYearnBtnLeft);
-    DivChangeYearnBtnLeft.addEventListener("click",rest9year)
+    DivChangeYearnBtnLeft.addEventListener("click",rest9year);
 
     divNewYear= document.createElement("div");
     divNewYear.classList= "DivChangeYear";
@@ -31,46 +29,35 @@ function changeYearWindow(){
     DivChangeYearnBtnRight= document.createElement("button");
     DivChangeYearnBtnRight.classList= "DivChangeYearnBtnRight";
     divChangeYear.appendChild(DivChangeYearnBtnRight);
-    DivChangeYearnBtnRight.addEventListener("click",add9year)
+    DivChangeYearnBtnRight.addEventListener("click",add9year);
 
-    addYear()
+    addYear();
 }
 
 function addYear(){
-   
     for(let i=-4; i<=4; i++){
-        divNumberYear= document.createElement("div")
+        divNumberYear= document.createElement("div");
         divNumberYear.classList= "divNumberYear";
         divNumberYear.textContent= actYear+i;
-        divNewYear.appendChild(divNumberYear)
+        divNewYear.appendChild(divNumberYear);
         }
-        
-        lastYear =  parseInt(divNumberYear.textContent);
-        // lastYear = parseInt;
-
-        console.log(lastYear)
 }
-
 function add9year(){
-    var divNumberYearall = document.querySelectorAll(".divNumberYear")
-    console.log(divNumberYearall)
-    for( let l = 0; l<=8; l++){
-        divNumberYearall[l].innerHTML =lastYear + l;
+    var divNumberYearall = document.querySelectorAll(".divNumberYear");
+    var sum=1;
+    var year=parseInt(divNumberYearall[8].innerHTML);
+    for(let i=0;i<=8;i++){
+        divNumberYearall[i].innerHTML =year + sum;
+        sum++;
     }
-    lastYear = lastYear + 9 ;
 }
-
-
 
 function rest9year(){
-    var divNumberYearall = document.querySelectorAll(".divNumberYear")
-    console.log(lastYear)
-    console.log(divNumberYearall)
-    for( let l = 8; l<=0; l--){
-        console.log(divNumberYearall[l])
-        divNumberYearall[l].innerHTML =lastYear - l;
-        console.log(lastYear)
+    var divNumberYearall = document.querySelectorAll(".divNumberYear");
+    var rest=1;
+    var year=parseInt(divNumberYearall[0].innerHTML);
+    for(let i=8;i>=0;i--){
+        divNumberYearall[i].innerHTML =year - rest;
+        rest++;
     }
-    lastYear = lastYear - 9 ;
 }
-
