@@ -1,12 +1,14 @@
-const mainContainer = document.getElementById("containerDays")
-const mainContainerFragment = document.createDocumentFragment()
-const previousButton = document.getElementById("previousButton")
-const nextButton = document.getElementById("nextButton")
-var actDate = new Date
-var actualMonth = document.getElementById("actualMonth")
-var actualYear = document.getElementById("actualYear")
-previousButton.addEventListener("click",previousMonth)
-nextButton.addEventListener("click",nextMonth)
+
+
+const mainContainer = document.getElementById("containerDays");
+const mainContainerFragment = document.createDocumentFragment();
+const previousButton = document.getElementById("previousButton");
+const nextButton = document.getElementById("nextButton");
+var actDate = new Date;
+var actualMonth = document.getElementById("actualMonth");
+var actualYear = document.getElementById("actualYear");
+previousButton.addEventListener("click",previousMonth);
+nextButton.addEventListener("click",nextMonth);
 
 function updateMonth(){
     actualMonth.innerHTML = actDate.toLocaleString('en-us', { month: 'long'})

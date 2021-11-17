@@ -66,3 +66,41 @@
     display: none;
 }
 
+.containerDivChangeYear{
+    height: 550px;
+    background-color: rgb(25, 7, 190);
+    display: grid;
+    grid-template-columns: 5% 1fr 5%;
+
+}
+.DivChangeYear{
+    height: 100%;
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:repeat(3, 1fr);
+}
+.divNewYear{
+    color : white;
+    height: 100%;
+}
+
+.DivChangeYearnBtnLeft{
+    height: 80%;
+    background-color: rgb(226, 223, 43);
+   justify-self: center;
+}
+.DivChangeYearBtnRight{
+    height: 80%;
+    background-color: rgb(226, 223, 43);
+   justify-self: center;
+}
+.divNumberYear{
+    height: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+button{
+    height: 50px;
+}
