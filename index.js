@@ -49,7 +49,7 @@ function changeMonth(dia){
         dayDiv.textContent = new Date (actYear,actMonth,i).getDate();
         if(i<=0){dayDiv.style.color="beige";}
         if(i==actDate.getDate() && actDate.getMonth()== new Date().getMonth() && actDate.getFullYear()== new Date().getFullYear() ){
-            dayDiv.style.backgroundColor="beige";
+            dayDiv.style.backgroundColor="#f5a840ff";
         }
         printEvent(new Date (actYear,actMonth,i));
         mainContainerFragment.appendChild(dayDiv);
