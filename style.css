@@ -1,6 +1,6 @@
 :root {
   --color-violet: #a869bbff;
-  --color-green: #72ce9bff;
+  --color-green: #41b26eff;
   --color-orange: #f5a840ff;
   --color-blue: #a0d8d9ff;
   --color-red: #d56564fa;
@@ -160,37 +160,4 @@ i {
 button {
   height: 50px;
 }
-.modal {
-  height: 100vh;
-  width: 100vw;
-}
-.modal-dialog {
-  height: 95%;
-}
-.modal-content {
-  height: 95%;
-  width: 100%;
-}
-.modal-body {
-  background-color: var(--color-principal);
-}
-.modal-footer {
-  background-color: var(--color-principal);
-}
 
-#formTarea {
-  display: flex;
-  flex-direction: column;
-}
-.textCenterFlex {
-  align-self: center;
-}
-.buttonModal {
-  background-color: var(--color-principal);
-}
-.buttonModal:first-child {
-  color: red;
-}
-.buttonModal:nth-child(2) {
-  color: green;
-}
