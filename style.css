@@ -1,33 +1,40 @@
 :root {
-  --color-principal: #dfd7d7;
-  --color-secundario: #b0a8a8;
-  --color-calendar-semana: #0055ff;
-  --color-calendar-dias: #b0bcd6;
-  --color-boton: #575151;
+  --color-principal-light: beige;
+  --color-violet: #a869bbff;
+  --color-green: #41b26eff;
+  --color-orange: #f5a840ff;
+  --color-blue: #a0d8d9ff;
+  --color-red: #d56564fa;
 }
+
 body {
-  width: 80%;
-}
-header {
   width: 100%;
+  background-color: var(--color-principal-light);
+  margin: 0;
+  padding: 0;
 }
+
+header {
+  margin-top: 15%;
+}
+
 .margein {
-  margin-left: 10%;
-  /* padding: 5% 0 0 0; */
+  margin-left: 5%;
+  margin-right: 5%;
 }
+
 .editYear {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .editYear #actualYear {
   font-size: 5vw;
 }
+
 .editYear #actualYear:hover {
   font-size: 20px;
-}
-section.margein {
-  margin-top: 15px;
 }
 
 .editOtr {
@@ -35,50 +42,81 @@ section.margein {
   align-content: center;
   justify-content: space-between;
 }
-.editOtr h2 {
-  font-size: 5vw;
+
+
+.iconZodiac {
+  width: 10%;
+  height: 10%;
 }
+
 .containerDays {
   display: grid;
-  grid-template-columns: repeat(7, 16%);
+  grid-template-columns: repeat(7, 13.5%);
   grid-template-rows: 0.5fr repeat(5, 1fr);
   width: 100%;
-  height: 50vw;
+  height: 80vw;
+  text-align: center;
+  gap: 1%;
 }
 
 .nameDays {
-  background-color: var(--color-calendar-semana);
-  border: 1px black solid;
+  background-color: var(--color-orange);
   color: white;
   font-size: 3vw;
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 20%;
+}
+
+.Today {
+  /* background-color: var(--color-orange); */
+  color: var(--color-principal-light);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-top-left-radius: 20%;
 }
 
 .days {
-  background-color: var(--color-calendar-dias);
-  border: 1px black solid;
+  background-color: var(--color-blue);
   font-size: 2vw;
 }
+
 .classicBtn {
   border: none;
   padding: 0 5px 0 5px;
-  color: var(--color-secundario);
+  color: var(--color-red);
   background-color: white;
 }
+.classicBtn2 {
+    border: none;
+    color: rgb(101, 62, 128);
+    background-color: transparent;
+    margin-top: 30vh;
+
+  }
+.classicBtn3 {
+    margin-right: 60px;
+
+  }
 .classicBtn:hover {
-  color: var(--color-boton);
+  color: var(--color-violet);
+}
+
+.classicBtn:active {
+  color: var(--color-orange);
 }
 
 i {
   font-size: 40px;
 }
 
-/*Provisional*/
+/*Display footer frase + tareas y botones*/
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
-  height: 100px;
+  height: 50vw;
 }
 
 #divTasks {
@@ -86,6 +124,14 @@ i {
   width: 70%;
   height: 100%;
   border-radius: 10px;
+  color: var(--color-principal-light);
+  font-size: 3vw;
+}
+
+#addTask {
+  color: var(--color-principal-light);
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
 }
 
 .col-left {
@@ -96,96 +142,36 @@ i {
   right: 0;
 }
 
-#addTask {
-  border-radius: 50%;
-  background-color: bisque;
-  border: 2px solid black;
-  font-weight: bold;
-}
-/*#event{
-    width:100%;
-    height:300px;
-    padding: 0 0 0 40%;
-}
-#event-content{
-    width:20%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}*/
-
 .hidden {
   display: none;
 }
 
 .containerDivChangeYear {
   height: 550px;
-  background-color: rgb(25, 7, 190);
+  background-color: var(--color-principal);
   display: grid;
-  grid-template-columns: 5% 1fr 5%;
+  grid-template-columns: 10% 1fr 10%;
 }
+
 .DivChangeYear {
   height: 100%;
-  background-color: blueviolet;
+  background-color:var(--color-principal);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+ 
 }
+
 .divNewYear {
   color: white;
   height: 100%;
+
 }
 
-.DivChangeYearnBtnLeft {
-  height: 80%;
-  background-color: rgb(226, 223, 43);
-  justify-self: center;
-}
-.DivChangeYearBtnRight {
-  height: 80%;
-  background-color: rgb(226, 223, 43);
-  justify-self: center;
-}
 .divNumberYear {
   height: 100%;
   text-align: center;
   font-size: 25px;
-}
-
-button {
-  height: 50px;
-}
-*/ .modal {
-  height: 100vh;
-  width: 100vw;
-}
-.modal-dialog {
-  height: 95%;
-}
-.modal-content {
-  height: 95%;
-  width: 100%;
-}
-.modal-body {
-  background-color: var(--color-principal);
-}
-.modal-footer {
-  background-color: var(--color-principal);
-}
-
-#formTarea {
-  display: flex;
-  flex-direction: column;
-}
-.textCenterFlex {
-  align-self: center;
-}
-.buttonModal {
-  background-color: var(--color-principal);
-}
-.buttonModal:first-child {
-  color: red;
-}
-.buttonModal:nth-child(2) {
-  color: green;
+  border: solid 1px white;
+  text-justify: center;
 }
