@@ -81,16 +81,21 @@
                         </div>
                         <div class="modal-body">
                             <div id="event">
-                                <form name="event-content">
-                                    <label>Name of Event
-                                        <input type="text" id="nameEvent"></label>
-                                    <label>Date of Start
-                                        <input type="datetime-local" id="dateStart"></label>
-                                    <label>
-                                        <input id="checkDate" type="checkbox">Choose date finish</label>
+                                <form id="formTarea" name="event-content">
+                                    <label class="textCenterFlex">Name of Event</label>
+                                        <input type="text" id="nameEvent">
+                                    <label class="textCenterFlex">Date of Start</label>
+                                        <input type="datetime-local" id="dateStart">
+                                    <div class="textCenterFlex">
+                                        <label>Choose date finish</label>
+                                        <input id="checkDate" type="checkbox">
+                                    </div>
+                                        
                                     <input type="datetime-local" id="dateFinal" class="hidden">
-                                    <label>
-                                        <input id="checkNot" type="checkbox" >Receive Notification</label>
+                                    <div class="textCenterFlex">
+                                        <label>Receive Notification</label>
+                                        <input id="checkNot" type="checkbox" >
+                                    </div>
                                     <select id="time" class="hidden">
                                         <option value=" "> </option>
                                         <option value="5">5 minutes</option>
@@ -99,7 +104,7 @@
                                         <option value="30">30 minutes</option>
                                         <option value="1">1 hour</option>
                                     </select>
-                                    <label>Type of Event
+                                    <label class="textCenterFlex">Type of Event</label>
                                         <select name="event" id="typeEvent">
                                             <option value="other">other</option>
                                             <option value="work">work</option>
@@ -107,15 +112,20 @@
                                             <option value="family">family</option>
                                             <option value="leisure">leisure</option>
                                         </select>
-                                    </label>
-                                    <input id="description" type="textarea" placeholder="Description">
+                                    <label class="textCenterFlex">Description</label>
+                                    <textarea id="description" type="textarea" placeholder="Description" rows="4">
+                                        </textarea>
                                 </form>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Close</button>
-                            <button id="aceptTask" type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn buttonModal"
+                                data-bs-dismiss="modal">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button id="aceptTask" type="button" class="btn buttonModal">
+                                <i class="fas fa-check"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
