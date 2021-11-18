@@ -30,17 +30,20 @@ function changeYearWindow(){
     DivChangeYearnBtnRight.classList= "DivChangeYearnBtnRight";
     divChangeYear.appendChild(DivChangeYearnBtnRight);
     DivChangeYearnBtnRight.addEventListener("click",add9year);
-
+ 
     addYear();
 }
 
 function addYear(){
+    actualYear.removeEventListener("click",changeYearWindow);
+
     for(let i=-4; i<=4; i++){
         divNumberYear= document.createElement("div");
         divNumberYear.classList= "divNumberYear";
         divNumberYear.textContent= actYear+i;
         divNewYear.appendChild(divNumberYear);
         }
+       
 }
 function add9year(){
     var divNumberYearall = document.querySelectorAll(".divNumberYear");
