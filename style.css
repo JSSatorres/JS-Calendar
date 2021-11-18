@@ -1,33 +1,40 @@
 :root {
+  --color-principal-light: beige;
   --color-violet: #a869bbff;
   --color-green: #41b26eff;
   --color-orange: #f5a840ff;
   --color-blue: #a0d8d9ff;
   --color-red: #d56564fa;
 }
+
 body {
-  width: 80%;
-}
-header {
   width: 100%;
+  background-color: var(--color-principal-light);
+  margin: 0;
+  padding: 0;
 }
+
+header {
+  margin-top: 15%;
+}
+
 .margein {
-  margin-left: 10%;
-  /* padding: 5% 0 0 0; */
+  margin-left: 5%;
+  margin-right: 5%;
 }
+
 .editYear {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .editYear #actualYear {
   font-size: 5vw;
 }
+
 .editYear #actualYear:hover {
   font-size: 20px;
-}
-section.margein {
-  margin-top: 15px;
 }
 
 .editOtr {
@@ -37,53 +44,69 @@ section.margein {
 }
 
 
-.iconZodiac{
+.iconZodiac {
   width: 10%;
+  height: 10%;
 }
 
 .containerDays {
   display: grid;
-  grid-template-columns: repeat(7, 16%);
+  grid-template-columns: repeat(7, 13.5%);
   grid-template-rows: 0.5fr repeat(5, 1fr);
   width: 100%;
-  height: 50vw;
+  height: 80vw;
+  text-align: center;
+  gap: 1%;
 }
 
 .nameDays {
   background-color: var(--color-orange);
-  border: 1px black solid;
   color: white;
   font-size: 3vw;
   text-align: center;
   font-weight: bold;
+  border-top-left-radius: 20%;
+}
+
+.Today {
+  /* background-color: var(--color-orange); */
+  color: var(--color-principal-light);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-top-left-radius: 20%;
 }
 
 .days {
   background-color: var(--color-blue);
-  border: 1px black solid;
   font-size: 2vw;
 }
+
 .classicBtn {
   border: none;
   padding: 0 5px 0 5px;
   color: var(--color-red);
   background-color: white;
 }
+
 .classicBtn:hover {
-  color: var(--color-boton);
+  color: var(--color-violet);
+}
+
+.classicBtn:active {
+  color: var(--color-orange);
 }
 
 i {
   font-size: 40px;
 }
 
-/*Provisional*/
+/*Display footer frase + tareas y botones*/
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
-  height: 100px;
+  height: 50vw;
 }
 
 #frase {
@@ -91,6 +114,14 @@ i {
   width: 70%;
   height: 100%;
   border-radius: 10px;
+  color: var(--color-principal-light);
+  font-size: 3vw;
+}
+
+#addTask {
+  color: var(--color-principal-light);
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
 }
 
 .col-left {
@@ -101,12 +132,7 @@ i {
   right: 0;
 }
 
-#addTask {
-  border-radius: 50%;
-  background-color: var(--color-orange);
-  border: 2px solid black;
-  font-weight: bold;
-}
+
 /*#event{
     width:100%;
     height:300px;
@@ -129,6 +155,7 @@ i {
   display: grid;
   grid-template-columns: 5% 1fr 5%;
 }
+
 .DivChangeYear {
   height: 100%;
   background-color: blueviolet;
@@ -136,6 +163,7 @@ i {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
+
 .divNewYear {
   color: white;
   height: 100%;
@@ -146,18 +174,15 @@ i {
   background-color: rgb(226, 223, 43);
   justify-self: center;
 }
+
 .DivChangeYearBtnRight {
   height: 80%;
   background-color: rgb(226, 223, 43);
   justify-self: center;
 }
+
 .divNumberYear {
   height: 100%;
   text-align: center;
   font-size: 25px;
 }
-
-button {
-  height: 50px;
-}
-

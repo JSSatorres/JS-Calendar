@@ -1,11 +1,4 @@
-:root {
-    --color-principal: beige;
-    --color-violet: #a869bbff;
-    --color-green: #41b26eff;
-    --color-orange: #f5a840ff;
-    --color-blue: #a0d8d9ff;
-    --color-red: #d56564fa;
-}
+
 
 .modal {
     height: 100vh;
