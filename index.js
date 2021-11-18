@@ -10,6 +10,7 @@ const nextButton = document.getElementById("nextButton");
 export var actDate = new Date();
 var actualMonth = document.getElementById("actualMonth");
 var actualYear = document.getElementById("actualYear");
+const divTasks = document.getElementById("divTasks");
 previousButton.addEventListener("click", previousMonth);
 nextButton.addEventListener("click", nextMonth);
 var dayDiv;
@@ -49,7 +50,10 @@ export function changeMonth(dia) {
   for (let i = -startDay + 2; i <= fecha2; i++) {
     dayDiv = document.createElement("div");
     dayDiv.classList = "days";
-    dayDiv.textContent = new Date(actYear, actMonth, i).getDate();
+    var numberDiv = document.createElement("div");
+    numberDiv.innerText = new Date(actYear, actMonth, i).getDate();
+    dayDiv.setAttribute("data-day", i);
+    dayDiv.appendChild(numberDiv);
     if (i <= 0) {
       dayDiv.style.color = "beige";
     }
@@ -62,6 +66,7 @@ export function changeMonth(dia) {
     }
     printEvent(new Date(actYear, actMonth, i));
     mainContainerFragment.appendChild(dayDiv);
+    dayDiv.addEventListener("click", showTasks);
   }
   mainContainer.appendChild(mainContainerFragment);
 }
@@ -69,6 +74,7 @@ export function changeMonth(dia) {
 // Elimina los daton anteriores de los divs
 function removeDaysDiv() {
   while (mainContainer.children.length > 7) {
+    //remove event listener from maincontainder.lastchild
     mainContainer.removeChild(mainContainer.lastChild);
   }
 }
@@ -97,4 +103,21 @@ function printEvent(fecha) {
     masEventos.innerHTML = contadorEvento - 2 + " más";
     dayDiv.appendChild(masEventos);
   }
+}
+
+function showTasks(event) {
+  //vaciamos el div
+  divTasks.innerHTML = "";
+  console.log(event.currentTarget.getAttribute("data-day"));
+  const fechaDia = new Date(
+    actDate.getFullYear(),
+    actDate.getMonth(),
+    event.currentTarget.getAttribute("data-day")
+  );
+  arrayFuture.forEach((element) => {
+    var fechaEvento = new Date(element.dateInitial);
+    fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
+    if (fechaEvento.getTime() == fechaDia.getTime())
+      divTasks.innerHTML += element.title + " ";
+  });
 }
