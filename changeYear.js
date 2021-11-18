@@ -10,15 +10,17 @@ var DivChangeYearnBtnLeft;
 var divNumberYear;
 var DivChangeYearnBtnRight;
 actualYear.addEventListener("click",changeYearWindow);
+var actualYearModal2 = document.getElementById("modal2body");
 
 
 function changeYearWindow(){
     divChangeYear= document.createElement("div");
     divChangeYear.classList= "containerDivChangeYear";
-    document.body.appendChild(divChangeYear);
+    actualYearModal2.appendChild(divChangeYear);
 
     DivChangeYearnBtnLeft= document.createElement("button");
-    DivChangeYearnBtnLeft.classList= "DivChangeYearnBtnLeft";
+    DivChangeYearnBtnLeft.classList= "DivChangeYearnBtnLeft classicBtn2 classicBtn3";
+    DivChangeYearnBtnLeft.innerHTML ='<i class="fas fa-arrow-alt-circle-left"></i>';
     divChangeYear.appendChild(DivChangeYearnBtnLeft);
     DivChangeYearnBtnLeft.addEventListener("click",rest9year);
 
@@ -27,7 +29,8 @@ function changeYearWindow(){
     divChangeYear.appendChild(divNewYear);
 
     DivChangeYearnBtnRight= document.createElement("button");
-    DivChangeYearnBtnRight.classList= "DivChangeYearnBtnRight";
+    DivChangeYearnBtnRight.classList= "DivChangeYearnBtnRight classicBtn2";
+    DivChangeYearnBtnRight.innerHTML ='<i class="fas fa-arrow-alt-circle-right"></i>';
     divChangeYear.appendChild(DivChangeYearnBtnRight);
     DivChangeYearnBtnRight.addEventListener("click",add9year);
 
