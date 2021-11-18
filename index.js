@@ -107,17 +107,36 @@ function printEvent(fecha) {
 
 function showTasks(event) {
   //vaciamos el div
-  divTasks.innerHTML = "";
+  divTasks.innerHTML="";
+  var accordion= document.createElement("div");
+  accordion.className="accordion";
+  accordion.setAttribute("id","accordionExample");
   console.log(event.currentTarget.getAttribute("data-day"));
   const fechaDia = new Date(
     actDate.getFullYear(),
     actDate.getMonth(),
     event.currentTarget.getAttribute("data-day")
   );
+  var count=0;
   arrayFuture.forEach((element) => {
     var fechaEvento = new Date(element.dateInitial);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
     if (fechaEvento.getTime() == fechaDia.getTime())
-      divTasks.innerHTML += element.title + " ";
+    var accordionItem=document.createElement("div");
+    console.log(accordionItem);
+    accordionItem.className="accordion-item";
+      accordionItem.innerHTML= `<h2 class="accordion-header" id="heading${count}">`
+      +`<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">`
+          +element.title
+        +'</button>'
+      +'</h2>'
+      +`<div id="collapse${count}" class="accordion-collapse collapse show" aria-labelledby="heading${count}" data-bs-parent="#accordionExample">`
+        +'<div class="accordion-body">'
+          +"Descripcion"
+        +'</div>'
+      +'</div>';
+      count++;
+     accordion.appendChild(accordionItem);
   });
+  divTasks.appendChild(accordion);
 }
