@@ -68,12 +68,12 @@ header {
   border-top-left-radius: 20%;
 }
 
-.Today {
-  /* background-color: var(--color-orange); */
+div.Today {
   color: var(--color-principal-light);
   font-weight: bold;
   text-transform: uppercase;
   border-top-left-radius: 20%;
+  background-color: var(--color-orange);
 }
 
 .days {

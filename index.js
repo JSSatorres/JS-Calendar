@@ -62,7 +62,6 @@ export function changeMonth(dia) {
       actDate.getMonth() == new Date().getMonth() &&
       actDate.getFullYear() == new Date().getFullYear()
     ) {
-        dayDiv.style.backgroundColor="#f5a840ff";
         dayDiv.classList.add("Today");
     }
     printEvent(new Date(actYear, actMonth, i));
