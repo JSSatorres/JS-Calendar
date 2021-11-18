@@ -1,5 +1,4 @@
 function getFuture(){
-    //return localStorage.future!="undefined" ? JSON.parse(localStorage.future) : [];
     return JSON.parse(localStorage.getItem("future")) || [ ];
 }
 

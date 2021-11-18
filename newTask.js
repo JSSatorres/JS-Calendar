@@ -26,57 +26,15 @@ function checkOld(){
     localStorage.past= JSON.stringify(arrayPast);
 }
 
-var divEvent = document.getElementById("event");
-var openModalTask = document.getElementById("addTask");
-openModalTask.addEventListener("click", openModal);
 
-function openModal() {
-    divEvent.classList.toggle("hidden");
-    createForm();
-}
-
-// Crear la pantalla modal de openModal
-function createForm() {
-    divEvent.innerHTML =
-        '<form id="event-content" name="event-content">' +
-        '<label>' + 'Name of Event' +
-        '<input type="text" id="nameEvent">' + '</label>' +
-        '<label>' + 'Date of Start' +
-        '<input type="datetime-local" id="dateStart">' + '</label>' +
-        '<label>' +
-        '<input id="checkDate" type="checkbox">' + 'Choose date finish' + '</label>' +
-        '<input type="datetime-local" id="dateFinal" class="hidden">' +
-        '<label>' +
-        '<input id="checkNot" type="checkbox" >' + 'Receive Notification' + '</label>' +
-        '<select id="time" class="hidden">' +
-        '<option value=" ">' + ' ' + '</option>' +
-        '<option value="5">' + '5 minutes' + '</option>' +
-        '<option value="10">' + '10 minutes' + '</option>' +
-        '<option value="15">' + '15 minutes' + '</option>' +
-        '<option value="30">' + '30 minutes' + '</option>' +
-        '<option value="1">' + '1 hour' + '</option>' +
-        '</select>' +
-        '<label>' + 'Type of Event' +
-        '<select name="event" id="typeEvent">' +
-        '<option value="other">' + 'other' + '</option>' +
-        '<option value="work">' + 'work' + '</option>' +
-        '<option value="house">' + 'house' + '</option>' +
-        '<option value="family">' + 'family' + '</option>' +
-        '<option value="leisure">' + 'leisure' + '</option>' +
-        '</select>' + '</label>' +
-        '<input id="description" type="textarea" placeholder="Description">'+
-        '<input type="button" id="closeModal" value="Close">' +
-        '<input type="button" id="aceptTask" value="Acept">' +
-        '</form>';
     var checkDate= document.getElementById("checkDate");
     checkDate.addEventListener("click", showFin);
     var checkNot= document.getElementById("checkNot");
     checkNot.addEventListener("click", showNotification);
     var aceptTaskAdd= document.getElementById("aceptTask")
     aceptTaskAdd.addEventListener("click", aceptTask);
-    var closeModalBtn= document.getElementById("closeModal");
-    closeModalBtn.addEventListener("click", closeModal);
-}
+
+
 
 //muestra el input dateFinal
 function showFin() {
@@ -101,11 +59,6 @@ function showNotification(){
     }
 }
 
-// cierra la ventana modal
-function closeModal(){
-    divEvent.innerHTML = "";
-    removeEvenListenerAddTask()
-}
 
 // Crear un objeto
 function createObj(title, dateInitial, dateFin, notification, typeEvent, description) {
@@ -158,10 +111,7 @@ function obtenerLocalStorage(){
 
 // Funcion para borrar los event listener del modal AddTask
 function removeEvenListenerAddTask(){
-    var checkDate= document.getElementById("checkDate");
     checkDate.removeEventListener("click", showFin);
-    var checkNot= document.getElementById("checkNot");
     checkNot.removeEventListener("click", showNotification);
-    var aceptTaskAdd= document.getElementById("aceptTask")
     aceptTaskAdd.removeEventListener("click", aceptTask);
 }
