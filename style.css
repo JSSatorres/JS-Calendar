@@ -87,7 +87,17 @@ header {
   color: var(--color-red);
   background-color: white;
 }
+.classicBtn2 {
+    border: none;
+    color: rgb(101, 62, 128);
+    background-color: transparent;
+    margin-top: 30vh;
 
+  }
+.classicBtn3 {
+    margin-right: 60px;
+
+  }
 .classicBtn:hover {
   color: var(--color-violet);
 }
@@ -109,8 +119,8 @@ i {
   height: 50vw;
 }
 
-#frase {
-  background-color: var(--color-orange);
+#divTasks {
+  background-color: bisque;
   width: 70%;
   height: 100%;
   border-radius: 10px;
@@ -132,57 +142,36 @@ i {
   right: 0;
 }
 
-
-/*#event{
-    width:100%;
-    height:300px;
-    padding: 0 0 0 40%;
-}
-#event-content{
-    width:20%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}*/
-
 .hidden {
   display: none;
 }
 
 .containerDivChangeYear {
   height: 550px;
-  background-color: rgb(25, 7, 190);
+  background-color: var(--color-principal);
   display: grid;
-  grid-template-columns: 5% 1fr 5%;
+  grid-template-columns: 10% 1fr 10%;
 }
 
 .DivChangeYear {
   height: 100%;
-  background-color: blueviolet;
+  background-color:var(--color-principal);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+ 
 }
 
 .divNewYear {
   color: white;
   height: 100%;
-}
 
-.DivChangeYearnBtnLeft {
-  height: 80%;
-  background-color: rgb(226, 223, 43);
-  justify-self: center;
-}
-
-.DivChangeYearBtnRight {
-  height: 80%;
-  background-color: rgb(226, 223, 43);
-  justify-self: center;
 }
 
 .divNumberYear {
   height: 100%;
   text-align: center;
   font-size: 25px;
+  border: solid 1px white;
+  text-justify: center;
 }

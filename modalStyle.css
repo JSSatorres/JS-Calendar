@@ -41,3 +41,11 @@
 .buttonModal:nth-child(2) {
     color: var(--color-green);
 }
+
+.modal-header{
+    background-color: var(--color-principal);
+    }
+
+    .modal-content {
+        background-color: var(--color-principal) !important;
+    }
