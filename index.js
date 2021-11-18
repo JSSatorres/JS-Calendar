@@ -79,14 +79,22 @@ changeMonth(actDate);
 //tener en cuenta la array futuro, eventos de un día
 function printEvent(fecha) {
   //if fecha calendario= fecha evento=> print
+  var contadorEvento = 0;
   arrayFuture.forEach((element) => {
     var fechaEvento = new Date(element.dateInitial);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
     if (fechaEvento.getTime() === fecha.getTime()) {
-      console.log("entraaaa");
-      var taskInCalendar = document.createElement("p");
-      taskInCalendar.innerHTML = element.title;
-      dayDiv.appendChild(taskInCalendar);
+      contadorEvento += 1;
+      if (contadorEvento < 3) {
+        var taskInCalendar = document.createElement("p");
+        taskInCalendar.innerHTML = element.title;
+        dayDiv.appendChild(taskInCalendar);
+      }
     }
   });
+  if (contadorEvento > 2) {
+    var masEventos = document.createElement("p");
+    masEventos.innerHTML = contadorEvento - 2 + " más";
+    dayDiv.appendChild(masEventos);
+  }
 }
