@@ -111,8 +111,16 @@ function aceptTask() {
     closeModal()
     //removeEvenListenerAddTask();
   }
+  var titleInput = document.getElementById("nameEvent");
+  var dateInitialInput = document.getElementById("dateStart");
+  
+  if(title==""){titleInput.style.border="2px solid red";}
+  else{titleInput.style.border="0px solid yellow"}
 
+  if(isNaN( dateInitial)){ dateInitialInput.style.border="2px solid red";}
+  else{titleInput.style.border="none"}
   console.log("esto no funciona");
+
 }
 // Guardar los datos del objeto en localStorage
 function guardarLocalSotorage(objeto) {

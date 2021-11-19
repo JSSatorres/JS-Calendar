@@ -159,13 +159,11 @@ i {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
- 
 }
 
 .divNewYear {
   color: white;
   height: 100%;
-
 }
 
 .divNumberYear {
@@ -174,4 +172,8 @@ i {
   font-size: 25px;
   border: solid 1px white;
   text-justify: center;
+}
+
+.backblue{
+  background-color: var(--color-blue);
 }
