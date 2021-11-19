@@ -88,27 +88,32 @@ function aceptTask() {
   var typeE = document.getElementById("typeEvent");
   var typeEvent = typeE.options[typeE.selectedIndex].text;
   var description = document.getElementById("description").value;
-  console.log(
-    title,
-    dateInitial,
-    dateFin,
-    notification,
-    typeEvent,
-    description
-  );
-  var eventTask = createObj(
-    title,
-    dateInitial,
-    dateFin,
-    notification,
-    typeEvent,
-    description
-  );
-  guardarLocalSotorage(eventTask);
-  changeMonth(actDate);
-  //removeEvenListenerAddTask();
-}
+  if(title!=""  && !isNaN( dateInitial)){
+    console.log(
+      title,
+      dateInitial,
+      dateFin,
+      notification,
+      typeEvent,
+      description
+    );
+    console.log("esto funciona" );
+    var eventTask = createObj(
+      title,
+      dateInitial,
+      dateFin,
+      notification,
+      typeEvent,
+      description
+    );
+    guardarLocalSotorage(eventTask);
+    changeMonth(actDate);
+    closeModal()
+    //removeEvenListenerAddTask();
+  }
 
+  console.log("esto no funciona");
+}
 // Guardar los datos del objeto en localStorage
 function guardarLocalSotorage(objeto) {
   arrayFuture.push(objeto);
@@ -129,4 +134,13 @@ function removeEvenListenerAddTask() {
   checkDate.removeEventListener("click", showFin);
   checkNot.removeEventListener("click", showNotification);
   aceptTaskAdd.removeEventListener("click", aceptTask);
+}
+
+function closeModal(){
+  removeEvenListenerAddTask();
+  // aceptTaskAdd.setAttribute("data-bs-dismiss","modal")
+  // $("#exampleModal").modal(toggle)
+  var myModal = bootstrap.Modal.getInstance(document.getElementById("exampleModal"))
+  console.log(myModal)
+  myModal.hide()
 }
