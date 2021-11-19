@@ -17,70 +17,76 @@ var dayDiv;
 
 // Cambia texto header mes+año
 function updateMonth() {
-  actualMonth.innerHTML = actDate.toLocaleString("en-us", { month: "long" });
-  actualYear.innerHTML = actDate.toLocaleString("en-us", { year: "numeric" });
+    actualMonth.innerHTML = actDate.toLocaleString("en-us", {
+        month: "long"
+    });
+    actualYear.innerHTML = actDate.toLocaleString("en-us", {
+        year: "numeric"
+    });
 }
 
 //funciones para botones anterior y siguiente mes
 function previousMonth() {
-  actDate.setMonth(actDate.getMonth() - 1);
-  changeMonth(actDate);
+    actDate.setMonth(actDate.getMonth() - 1);
+    changeMonth(actDate);
 }
 
 function nextMonth() {
-  actDate.setMonth(actDate.getMonth() + 1);
-  changeMonth(actDate);
+    actDate.setMonth(actDate.getMonth() + 1);
+    changeMonth(actDate);
 }
 
 // Pinta el mes en los divs
 export function changeMonth(dia) {
-  console.log("Prueba Ibai");
-  removeDaysDiv();
-  updateMonth();
-  arrayFuture = storage.getFuture();
-  var startDay = dia.getDay();
-  var actMonth = dia.getMonth();
-  var actYear = dia.getFullYear();
-  var fecha2 = new Date(actYear, actMonth + 1, 0).getDate();
-  var startDay = new Date(actYear, actMonth, 1).getDay();
-  if (startDay === 0) {
-    startDay = 7;
-  }
-  console.log(startDay);
-  for (let i = -startDay + 2; i <= fecha2; i++) {
-    dayDiv = document.createElement("div");
-    dayDiv.classList = "days";
-    var numberDiv = document.createElement("div");
-    numberDiv.innerText = new Date(actYear, actMonth, i).getDate();
-    dayDiv.setAttribute("data-day", i);
-    dayDiv.appendChild(numberDiv);
-    if (i <= 0) {
-      dayDiv.style.color = "beige";
+    console.log("Prueba Ibai");
+    removeDaysDiv();
+    updateMonth();
+    arrayFuture = storage.getFuture();
+    var startDay = dia.getDay();
+    var actMonth = dia.getMonth();
+    var actYear = dia.getFullYear();
+    var fecha2 = new Date(actYear, actMonth + 1, 0).getDate();
+    var startDay = new Date(actYear, actMonth, 1).getDay();
+    if (startDay === 0) {
+        startDay = 7;
     }
-    if (
-      i == actDate.getDate() &&
-      actDate.getMonth() == new Date().getMonth() &&
-      actDate.getFullYear() == new Date().getFullYear()
-    ) {
-        dayDiv.style.backgroundColor="#f5a840ff";
-        dayDiv.classList.add("Today");
+    console.log(startDay);
+    for (let i = -startDay + 2; i <= fecha2; i++) {
+        dayDiv = document.createElement("div");
+        dayDiv.classList = "days";
+        var numberDiv = document.createElement("div");
+        numberDiv.innerText = new Date(actYear, actMonth, i).getDate();
+        dayDiv.setAttribute("data-day", i);
+        dayDiv.appendChild(numberDiv);
+        if (i <= 0) {
+            dayDiv.style.color = "beige";
+        }
+        if (
+            i == actDate.getDate() &&
+            actDate.getMonth() == new Date().getMonth() &&
+            actDate.getFullYear() == new Date().getFullYear()
+        ) {
+            dayDiv.classList.add("Today");
+        }
+        printEvent(new Date(actYear, actMonth, i));
+        mainContainerFragment.appendChild(dayDiv);
+        dayDiv.addEventListener("click", showTasks);
     }
-    
-    // for(i=0; i<=durationDays; i++)
 
-    printEvent(new Date(actYear, actMonth, i));
-    mainContainerFragment.appendChild(dayDiv);
-    dayDiv.addEventListener("click", showTasks);
-  }
+  //   printEvent(new Date(actYear, actMonth, i));
+  //   mainContainerFragment.appendChild(dayDiv);
+  //   dayDiv.addEventListener("click", showTasks);
+  // }
   mainContainer.appendChild(mainContainerFragment);
 }
 
+
 // Elimina los daton anteriores de los divs
 function removeDaysDiv() {
-  while (mainContainer.children.length > 7) {
-    //remove event listener from maincontainder.lastchild
-    mainContainer.removeChild(mainContainer.lastChild);
-  }
+    while (mainContainer.children.length > 7) {
+        //remove event listener from maincontainder.lastchild
+        mainContainer.removeChild(mainContainer.lastChild);
+    }
 }
 
 changeMonth(actDate);
