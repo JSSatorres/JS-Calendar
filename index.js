@@ -65,6 +65,9 @@ export function changeMonth(dia) {
         dayDiv.style.backgroundColor="#f5a840ff";
         dayDiv.classList.add("Today");
     }
+    
+    // for(i=0; i<=durationDays; i++)
+
     printEvent(new Date(actYear, actMonth, i));
     mainContainerFragment.appendChild(dayDiv);
     dayDiv.addEventListener("click", showTasks);
@@ -90,7 +93,9 @@ function printEvent(fecha) {
   arrayFuture.forEach((element) => {
     var fechaEvento = new Date(element.dateInitial);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
-    if (fechaEvento.getTime() === fecha.getTime()) {
+    var fechaFinEvento = new Date(element.dateFin);
+    fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
+    if (betweenDates(fechaEvento.getTime(),fechaFinEvento.getTime(),fecha.getTime())) {
       contadorEvento += 1;
       if (contadorEvento < 3) {
         var taskInCalendar = document.createElement("p");
@@ -98,7 +103,18 @@ function printEvent(fecha) {
         dayDiv.appendChild(taskInCalendar);
       }
     }
-  });
+    // if(fechaEvento.getTime()<fecha.getTime()){
+    //   if(fechaFinEvento.getTime()>=fecha.getTime()){
+    //     contadorEvento++;
+    //     if(contadorEvento<3){
+    //       var taskInCalendar = document.createElement("p");
+    //       taskInCalendar.innerHTML = element.title;
+    //       dayDiv.appendChild(taskInCalendar);
+    //       }
+    //     }
+    //   }
+    });
+
   if (contadorEvento > 2) {
     var masEventos = document.createElement("p");
     masEventos.innerHTML = contadorEvento - 2 + " más";
@@ -122,7 +138,9 @@ function showTasks(event) {
   arrayFuture.forEach((element) => {
     var fechaEvento = new Date(element.dateInitial);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
-    if (fechaEvento.getTime() == fechaDia.getTime())
+    var fechaFinEvento = new Date(element.dateFin);
+    fechaFinEvento.setHours(0, 0, 0, 0); //pone la hora a 0
+    if ( betweenDates(fechaEvento.getTime(), fechaFinEvento.getTime() , fechaDia.getTime())){
     var accordionItem=document.createElement("div");
     console.log(accordionItem);
     accordionItem.className="accordion-item";
@@ -138,6 +156,14 @@ function showTasks(event) {
       +'</div>';
       count++;
      accordion.appendChild(accordionItem);
+    }
   });
   divTasks.appendChild(accordion);
+}
+
+function betweenDates(initialDate, finalDate, date){
+  if((initialDate<=date && finalDate>=date) || initialDate==date){
+    return true;
+  }
+  return false;
 }
