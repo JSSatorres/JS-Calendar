@@ -62,7 +62,8 @@ function createObj(
   dateFin,
   notification,
   typeEvent,
-  description
+  description,
+  id
 ) {
   return {
     title: title,
@@ -71,6 +72,7 @@ function createObj(
     notification: notification,
     typeEvent: typeEvent,
     description: description,
+    id: id,
   };
 }
 
@@ -88,7 +90,8 @@ function aceptTask() {
   var typeE = document.getElementById("typeEvent");
   var typeEvent = typeE.options[typeE.selectedIndex].text;
   var description = document.getElementById("description").value;
-  if(title!=""  && !isNaN( dateInitial)){
+  var id = Date.now();
+  if (title != "" && !isNaN(dateInitial)) {
     console.log(
       title,
       dateInitial,
@@ -97,18 +100,19 @@ function aceptTask() {
       typeEvent,
       description
     );
-    console.log("esto funciona" );
+    console.log("esto funciona");
     var eventTask = createObj(
       title,
       dateInitial,
       dateFin,
       notification,
       typeEvent,
-      description
+      description,
+      id
     );
     guardarLocalSotorage(eventTask);
     changeMonth(actDate);
-    closeModal()
+    closeModal();
     //removeEvenListenerAddTask();
   }
 
@@ -136,11 +140,13 @@ function removeEvenListenerAddTask() {
   aceptTaskAdd.removeEventListener("click", aceptTask);
 }
 
-function closeModal(){
+function closeModal() {
   removeEvenListenerAddTask();
   // aceptTaskAdd.setAttribute("data-bs-dismiss","modal")
   // $("#exampleModal").modal(toggle)
-  var myModal = bootstrap.Modal.getInstance(document.getElementById("exampleModal"))
-  console.log(myModal)
-  myModal.hide()
+  var myModal = bootstrap.Modal.getInstance(
+    document.getElementById("exampleModal")
+  );
+  console.log(myModal);
+  myModal.hide();
 }

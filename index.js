@@ -17,61 +17,61 @@ var dayDiv;
 
 // Cambia texto header mes+año
 function updateMonth() {
-    actualMonth.innerHTML = actDate.toLocaleString("en-us", {
-        month: "long"
-    });
-    actualYear.innerHTML = actDate.toLocaleString("en-us", {
-        year: "numeric"
-    });
+  actualMonth.innerHTML = actDate.toLocaleString("en-us", {
+    month: "long",
+  });
+  actualYear.innerHTML = actDate.toLocaleString("en-us", {
+    year: "numeric",
+  });
 }
 
 //funciones para botones anterior y siguiente mes
 function previousMonth() {
-    actDate.setMonth(actDate.getMonth() - 1);
-    changeMonth(actDate);
+  actDate.setMonth(actDate.getMonth() - 1);
+  changeMonth(actDate);
 }
 
 function nextMonth() {
-    actDate.setMonth(actDate.getMonth() + 1);
-    changeMonth(actDate);
+  actDate.setMonth(actDate.getMonth() + 1);
+  changeMonth(actDate);
 }
 
 // Pinta el mes en los divs
 export function changeMonth(dia) {
-    console.log("Prueba Ibai");
-    removeDaysDiv();
-    updateMonth();
-    arrayFuture = storage.getFuture();
-    var startDay = dia.getDay();
-    var actMonth = dia.getMonth();
-    var actYear = dia.getFullYear();
-    var fecha2 = new Date(actYear, actMonth + 1, 0).getDate();
-    var startDay = new Date(actYear, actMonth, 1).getDay();
-    if (startDay === 0) {
-        startDay = 7;
+  console.log("Prueba Ibai");
+  removeDaysDiv();
+  updateMonth();
+  arrayFuture = storage.getFuture();
+  var startDay = dia.getDay();
+  var actMonth = dia.getMonth();
+  var actYear = dia.getFullYear();
+  var fecha2 = new Date(actYear, actMonth + 1, 0).getDate();
+  var startDay = new Date(actYear, actMonth, 1).getDay();
+  if (startDay === 0) {
+    startDay = 7;
+  }
+  console.log(startDay);
+  for (let i = -startDay + 2; i <= fecha2; i++) {
+    dayDiv = document.createElement("div");
+    dayDiv.classList = "days";
+    var numberDiv = document.createElement("div");
+    numberDiv.innerText = new Date(actYear, actMonth, i).getDate();
+    dayDiv.setAttribute("data-day", i);
+    dayDiv.appendChild(numberDiv);
+    if (i <= 0) {
+      dayDiv.style.color = "beige";
     }
-    console.log(startDay);
-    for (let i = -startDay + 2; i <= fecha2; i++) {
-        dayDiv = document.createElement("div");
-        dayDiv.classList = "days";
-        var numberDiv = document.createElement("div");
-        numberDiv.innerText = new Date(actYear, actMonth, i).getDate();
-        dayDiv.setAttribute("data-day", i);
-        dayDiv.appendChild(numberDiv);
-        if (i <= 0) {
-            dayDiv.style.color = "beige";
-        }
-        if (
-            i == actDate.getDate() &&
-            actDate.getMonth() == new Date().getMonth() &&
-            actDate.getFullYear() == new Date().getFullYear()
-        ) {
-            dayDiv.classList.add("Today");
-        }
-        printEvent(new Date(actYear, actMonth, i));
-        mainContainerFragment.appendChild(dayDiv);
-        dayDiv.addEventListener("click", showTasks);
+    if (
+      i == actDate.getDate() &&
+      actDate.getMonth() == new Date().getMonth() &&
+      actDate.getFullYear() == new Date().getFullYear()
+    ) {
+      dayDiv.classList.add("Today");
     }
+    printEvent(new Date(actYear, actMonth, i));
+    mainContainerFragment.appendChild(dayDiv);
+    dayDiv.addEventListener("click", showTasks);
+  }
 
   //   printEvent(new Date(actYear, actMonth, i));
   //   mainContainerFragment.appendChild(dayDiv);
@@ -80,13 +80,12 @@ export function changeMonth(dia) {
   mainContainer.appendChild(mainContainerFragment);
 }
 
-
 // Elimina los daton anteriores de los divs
 function removeDaysDiv() {
-    while (mainContainer.children.length > 7) {
-        //remove event listener from maincontainder.lastchild
-        mainContainer.removeChild(mainContainer.lastChild);
-    }
+  while (mainContainer.children.length > 7) {
+    //remove event listener from maincontainder.lastchild
+    mainContainer.removeChild(mainContainer.lastChild);
+  }
 }
 
 changeMonth(actDate);
@@ -101,7 +100,13 @@ function printEvent(fecha) {
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
     var fechaFinEvento = new Date(element.dateFin);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
-    if (betweenDates(fechaEvento.getTime(),fechaFinEvento.getTime(),fecha.getTime())) {
+    if (
+      betweenDates(
+        fechaEvento.getTime(),
+        fechaFinEvento.getTime(),
+        fecha.getTime()
+      )
+    ) {
       contadorEvento += 1;
       if (contadorEvento < 3) {
         var taskInCalendar = document.createElement("p");
@@ -119,7 +124,7 @@ function printEvent(fecha) {
     //       }
     //     }
     //   }
-    });
+  });
 
   if (contadorEvento > 2) {
     var masEventos = document.createElement("p");
@@ -130,46 +135,69 @@ function printEvent(fecha) {
 
 function showTasks(event) {
   //vaciamos el div
-  divTasks.innerHTML="";
-  var accordion= document.createElement("div");
-  accordion.className="accordion";
-  accordion.setAttribute("id","accordionExample");
+  divTasks.innerHTML = "";
+  var accordion = document.createElement("div");
+  accordion.className = "accordion";
+  accordion.setAttribute("id", "accordionExample");
   console.log(event.currentTarget.getAttribute("data-day"));
   const fechaDia = new Date(
     actDate.getFullYear(),
     actDate.getMonth(),
     event.currentTarget.getAttribute("data-day")
   );
-  var count=0;
+  var count = 0;
   arrayFuture.forEach((element) => {
     var fechaEvento = new Date(element.dateInitial);
     fechaEvento.setHours(0, 0, 0, 0); //pone la hora a 0
     var fechaFinEvento = new Date(element.dateFin);
     fechaFinEvento.setHours(0, 0, 0, 0); //pone la hora a 0
-    if ( betweenDates(fechaEvento.getTime(), fechaFinEvento.getTime() , fechaDia.getTime())){
-    var accordionItem=document.createElement("div");
-    console.log(accordionItem);
-    accordionItem.className="accordion-item";
-      accordionItem.innerHTML= `<h2 class="accordion-header" id="heading${count}">`
-      +`<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">`
-          +element.title
-        +'</button>'
-      +'</h2>'
-      +`<div id="collapse${count}" class="accordion-collapse collapse show" aria-labelledby="heading${count}" data-bs-parent="#accordionExample">`
-        +'<div class="accordion-body">'
-          +"Descripcion"
-        +'</div>'
-      +'</div>';
+    if (
+      betweenDates(
+        fechaEvento.getTime(),
+        fechaFinEvento.getTime(),
+        fechaDia.getTime()
+      )
+    ) {
+      var accordionItem = document.createElement("div");
+      //console.log(accordionItem);
+      accordionItem.className = "accordion-item";
+      accordionItem.innerHTML =
+        `<h2 class="accordion-header" id="heading${count}">` +
+        `<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">` +
+        element.title +
+        "</button>" +
+        "</h2>" +
+        `<div id="collapse${count}" class="accordion-collapse collapse show" aria-labelledby="heading${count}" data-bs-parent="#accordionExample">` +
+        '<div class="accordion-body">' +
+        "Descripcion" +
+        '<i id="icon' +
+        count +
+        '"class="fas fa-trash"></i>' +
+        "</div>" +
+        "</div>";
+      accordion.appendChild(accordionItem);
+      console.log(accordionItem.children[1].children[0].children[0]);
+      //var prueba = .getElementById("icon" + count);
+      //console.log(prueba);
+      accordionItem.children[1].children[0].children[0].onclick = function () {
+        deleteEvent(element.id);
+      };
       count++;
-     accordion.appendChild(accordionItem);
     }
   });
   divTasks.appendChild(accordion);
 }
 
-function betweenDates(initialDate, finalDate, date){
-  if((initialDate<=date && finalDate>=date) || initialDate==date){
+function betweenDates(initialDate, finalDate, date) {
+  if ((initialDate <= date && finalDate >= date) || initialDate == date) {
     return true;
   }
   return false;
+}
+
+function deleteEvent(id) {
+  var i = arrayFuture.findIndex((task) => task.id == id);
+  arrayFuture.splice(i, 1);
+  storage.setFuture(arrayFuture);
+  changeMonth(actDate);
 }
