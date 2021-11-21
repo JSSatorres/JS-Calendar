@@ -26,12 +26,18 @@ function checkOld() {
   localStorage.past = JSON.stringify(arrayPast);
 }
 
-var checkDate = document.getElementById("checkDate");
-checkDate.addEventListener("click", showFin);
-var checkNot = document.getElementById("checkNot");
-checkNot.addEventListener("click", showNotification);
-var aceptTaskAdd = document.getElementById("aceptTask");
-aceptTaskAdd.addEventListener("click", aceptTask);
+var addTask = document.getElementById("addTask");
+addTask.addEventListener("click",openModal);
+
+function openModal(){
+  var checkDate = document.getElementById("checkDate");
+  checkDate.addEventListener("click", showFin);
+  var checkNot = document.getElementById("checkNot");
+  checkNot.addEventListener("click", showNotification);
+  var aceptTaskAdd = document.getElementById("aceptTask");
+  aceptTaskAdd.addEventListener("click", aceptTask);
+}
+
 
 //muestra el input dateFinal
 function showFin() {
@@ -137,7 +143,7 @@ function obtenerLocalStorage() {
 function removeEvenListenerAddTask() {
   checkDate.removeEventListener("click", showFin);
   checkNot.removeEventListener("click", showNotification);
-  aceptTaskAdd.removeEventListener("click", aceptTask);
+ //aceptTaskAdd.removeEventListener("click", aceptTask);
 }
 
 function closeModal() {
