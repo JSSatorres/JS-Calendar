@@ -80,6 +80,12 @@ div.Today {
   background-color: var(--color-blue);
   font-size: 2vw;
 }
+.days p{
+  background-color: var(--color-violet);
+  border-radius: 10px;
+  color: var(--color-principal-light);
+  text-transform: capitalize;
+}
 
 .classicBtn {
   border: none;
@@ -182,7 +188,6 @@ background-color: var(--color-blue);
     display: grid;
     grid-template-columns: 20% 1fr;
     grid-template-rows: 20% 1fr;
-    
   }
 header{
   grid-column: 1/3;
@@ -207,3 +212,11 @@ header{
   height: 100%;
 }
 }/*Cierre @media
+
+/*Descripción tareas*/
+.fa-trash{
+  color: var(--color-red);
+}
+.accordion-body{
+  color: var(--color-violet);
+}
