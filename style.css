@@ -202,9 +202,12 @@ header{
   grid-column-end: 3;
 }
 #dayPhrase{
-  grid-row-start: 2;
+  grid-row-start: 2
+  ;
 }
-
+.containerDays {
+  height: 56vw;
+}
 #condayPhrase{
   display: grid;
   grid-template-columns: 1fr;
@@ -214,7 +217,18 @@ header{
 #divTasks{
   width: 100%;
   height: 100%;
+  padding: 2%;
 }
+
+.iconZodiac {
+  width: 5%;
+  height: 5%;
+}
+
+#actualMonth{
+  font-size: 4vw;
+}
+
 }/*Cierre @media
 
 /*Descripción tareas*/
