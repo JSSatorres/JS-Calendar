@@ -1,9 +1,10 @@
-// import {actualYear} from "./index.js";
+// import {changeYearDinamic} from "./index.js";
 
 // console.log(actualYear)
 var actDate = new Date;
 var actYear = actDate.getFullYear();
 var actualYear = document.getElementById("actualYear");
+var yearToSwich = 0;
 var divChangeYear;
 var divNewYear;
 var DivChangeYearnBtnLeft;
@@ -47,14 +48,15 @@ function addYear(){
     for(let i=-4; i<=4; i++){
         divNumberYear= document.createElement("div");
         divNumberYear.classList= "divNumberYear";
-        divNumberYear.textContent= actYear+i;
+        divNumberYear.innerHTML=actYear+i;
         divNewYear.appendChild(divNumberYear);
         }
     var divChangeYearAll =document.querySelectorAll(".divNumberYear")
     divChangeYearAll.addEventListener("click",changeYearTitle)
     console.log("soy pepe")
-    console.log(divChangeYearAll)
+    // console.log(divChangeYearAll)
 }
+
 function add9year(){
     var divNumberYearall = document.querySelectorAll(".divNumberYear");
     var sum=1;

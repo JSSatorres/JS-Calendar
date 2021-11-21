@@ -1,5 +1,5 @@
 import * as storage from "./storage.js";
-import { changeMonth, actDate } from "./index.js";
+import { changeMonth, actDate, getRandomQuote } from "./index.js";
 
 // función al recargar la página
 window.onload = refreshApp;
@@ -11,6 +11,7 @@ function refreshApp() {
   console.log("Welcome");
   obtenerLocalStorage();
   checkOld();
+  getRandomQuote();
 }
 
 function checkOld() {
@@ -151,7 +152,7 @@ function obtenerLocalStorage() {
 function removeEvenListenerAddTask() {
   checkDate.removeEventListener("click", showFin);
   checkNot.removeEventListener("click", showNotification);
- //aceptTaskAdd.removeEventListener("click", aceptTask);
+ aceptTaskAdd.removeEventListener("click", aceptTask);
 }
 
 function closeModal() {
