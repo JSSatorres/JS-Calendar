@@ -159,7 +159,6 @@ i {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
- 
 }
 
 .divNewYear {
@@ -175,3 +174,34 @@ i {
   border: solid 1px white;
   text-justify: center;
 }
+
+@media (min-width: 800px){
+  body{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-template-rows: 20% 1fr;
+    
+  }
+header{
+  grid-column: 1/3;
+  margin: 0px;
+}
+#containerCalendar{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+#dayPhrase{
+  grid-row-start: 2;
+}
+
+#condayPhrase{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 15% 1fr;
+  height: 100%;
+}
+#divTasks{
+  width: 100%;
+  height: 100%;
+}
+}/*Cierre @media

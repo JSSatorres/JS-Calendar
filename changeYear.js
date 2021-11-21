@@ -33,6 +33,10 @@ function changeYearWindow(){
     DivChangeYearnBtnRight.innerHTML ='<i class="fas fa-arrow-alt-circle-right"></i>';
     divChangeYear.appendChild(DivChangeYearnBtnRight);
     DivChangeYearnBtnRight.addEventListener("click",add9year);
+
+   
+        
+        // console.log(joder)
  
     addYear();
 }
@@ -46,7 +50,10 @@ function addYear(){
         divNumberYear.textContent= actYear+i;
         divNewYear.appendChild(divNumberYear);
         }
-       
+    var divChangeYearAll =document.querySelectorAll(".divNumberYear")
+    divChangeYearAll.addEventListener("click",changeYearTitle)
+    console.log("soy pepe")
+    console.log(divChangeYearAll)
 }
 function add9year(){
     var divNumberYearall = document.querySelectorAll(".divNumberYear");
@@ -67,3 +74,11 @@ function rest9year(){
         rest++;
     }
 }
+
+
+
+
+function changeYearTitle(){
+   
+}
+    
