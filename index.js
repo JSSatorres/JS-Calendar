@@ -132,7 +132,11 @@ function printEvent(fecha) {
     dayDiv.appendChild(masEventos);
   }
 }
-
+//ALERTA CUANDO QUEDAN 5 MINUTOS DEL TIEMPO HORA Y MINUTOS REAL Y EVENTO
+//cuando esta todo creado, ir al localstorage, ver si hoy hay un evento y
+//ver que cuando queden x minutos cerca del evento, sacar un aviso
+//Opcion1, obtener de localstorage de hoy hora del evento y cuando la hora real sea antes de 5
+//minutos del evento, avisar,
 function showTasks(event) {
   //vaciamos el div
   divTasks.innerHTML = "";
