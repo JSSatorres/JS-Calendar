@@ -32,10 +32,11 @@ header {
 
 .editYear #actualYear {
   font-size: 5vw;
+  cursor: pointer;
 }
 
 .editYear #actualYear:hover {
-  font-size: 20px;
+  color: var(--color-blue-dark);
 }
 
 .editOtr {
@@ -86,6 +87,7 @@ div.Today {
   border-radius: 10px;
   color: var(--color-principal-light);
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .classicBtn {
@@ -193,20 +195,25 @@ background-color: var(--color-blue);
     grid-template-columns: 20% 1fr;
     grid-template-rows: 20% 1fr;
   }
+
 header{
-  grid-column: 1/3;
+  grid-column: 2/3;
   margin: 0px;
 }
 #containerCalendar{
   grid-column-start: 2;
   grid-column-end: 3;
 }
+.editYear #actualYear {
+  margin-top: 30px;
+  font-size: 2vw;
+}
 #dayPhrase{
-  grid-row-start: 2
-  ;
+  grid-row: 1/4;
 }
 .containerDays {
-  height: 56vw;
+  height: 750px;
+  margin-top: 20px;
 }
 #condayPhrase{
   display: grid;
@@ -216,7 +223,7 @@ header{
 }
 #divTasks{
   width: 100%;
-  height: 100%;
+  height: 95%;
   padding: 2%;
 }
 
