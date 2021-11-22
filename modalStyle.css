@@ -43,9 +43,10 @@
 }
 
 .modal-header{
-    background-color: var(--color-principal);
+    background-color: var(--color-principal-light);
     }
 
     .modal-content {
-        background-color: var(--color-principal) !important;
+        background-color: var(--color-principal-light) !important;
     }
+

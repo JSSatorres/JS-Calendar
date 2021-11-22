@@ -14,7 +14,7 @@ const divTasks = document.getElementById("divTasks");
 previousButton.addEventListener("click", previousMonth);
 nextButton.addEventListener("click", nextMonth);
 var dayDiv;
-
+var quotes =  ["Si te duelen las rodillas, va a llover","Hoy es un día perfecto para ser Libra","Sueñas sin miedos, vive sin límites, hoy Tauro te dará la razón","Deja de esperar que el amor llame a tu puerta, hoy es el día","Saturno y Júpiter están alineados, Leo encontrará lo que buscaba","Exprésate sin temor, hoy Sagitario te escuchará","Hoy Escorpio tiene planes increíbles, ten cuidado","Cuando Aries te daña, es porque te quiere"]
 // Cambia texto header mes+año
 function updateMonth() {
   actualMonth.innerHTML = actDate.toLocaleString("en-us", {
@@ -25,6 +25,12 @@ function updateMonth() {
   });
 }
 
+
+function changeYearDinamic(yearToChange)
+{
+  actDate.setFullYear(yearToChange,actDate.getMonth());
+  changeMonth(actDate);
+}
 //funciones para botones anterior y siguiente mes
 function previousMonth() {
   actDate.setMonth(actDate.getMonth() - 1);
@@ -204,4 +210,14 @@ function deleteEvent(id) {
   arrayFuture.splice(i, 1);
   storage.setFuture(arrayFuture);
   changeMonth(actDate);
+}
+
+export function getRandomQuote(){
+  var randomNumber =  getRandom(quotes.length);
+  var quote = quotes[randomNumber];
+  divTasks.innerHTML = quote;
+}
+
+function getRandom(max) {
+  return Math.floor((Math.random() * max ));
 }
