@@ -45,6 +45,7 @@ function nextMonth() {
 // Pinta el mes en los divs
 export function changeMonth(dia) {
   console.log("Prueba Ibai");
+  //warnEvent();
   removeDaysDiv();
   updateMonth();
   arrayFuture = storage.getFuture();
@@ -85,7 +86,32 @@ export function changeMonth(dia) {
   // }
   mainContainer.appendChild(mainContainerFragment);
 }
-
+//ALERTA CUANDO QUEDAN 5 MINUTOS DEL TIEMPO HORA Y MINUTOS REAL Y EVENTO
+//cuando esta todo creado, ir al localstorage, ver si hoy hay un evento y
+//ver que cuando queden x minutos cerca del evento, sacar un aviso
+//Opcion1, obtener de localstorage de hoy hora del evento y cuando la hora real sea antes de 5
+//minutos del evento, avisar,
+/*function warnEvent(){
+  var dates=storage.getFuture();
+  if(dates[0])
+  var dateMilisec=dates[0].dateInitial;
+  console.log("warnEvent")
+  var hour=getHour(dateMilisec);
+  var minute=getMinutes(dateMilisec);
+  console.log(hour);
+  console.log(minute);
+  console.log("END warnEvent");
+}
+function getHour(duration) {
+  var hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+  hours = (hours < 10) ? "0" + hours : hours;
+  return hours;
+}
+function getMinutes(duration){
+  var minutes = Math.floor((duration / (1000 * 60)) % 60),
+  minutes = Math.floor((duration / (1000 * 60)) % 60);
+  return  minutes;
+}*/
 // Elimina los daton anteriores de los divs
 function removeDaysDiv() {
   while (mainContainer.children.length > 7) {
@@ -138,11 +164,7 @@ function printEvent(fecha) {
     dayDiv.appendChild(masEventos);
   }
 }
-//ALERTA CUANDO QUEDAN 5 MINUTOS DEL TIEMPO HORA Y MINUTOS REAL Y EVENTO
-//cuando esta todo creado, ir al localstorage, ver si hoy hay un evento y
-//ver que cuando queden x minutos cerca del evento, sacar un aviso
-//Opcion1, obtener de localstorage de hoy hora del evento y cuando la hora real sea antes de 5
-//minutos del evento, avisar,
+
 function showTasks(event) {
   //vaciamos el div
   divTasks.innerHTML = "";
